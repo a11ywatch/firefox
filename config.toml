@@ -1,0 +1,16 @@
+[[listeners]]
+# possible values are http, https or tcp
+protocol = "tcp"
+# listening address
+address = "127.0.0.1:6002"
+
+[clusters]
+[clusters.firefoxCluster]
+protocol = "tcp"
+send_proxy = true
+frontends = [
+  { address = "0.0.0.0:6002" }
+]
+backends  = [
+  { address = "127.0.0.1:5800" }
+]
